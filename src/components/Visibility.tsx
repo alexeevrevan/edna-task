@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Visibility = styled.img`
   position: relative;
-  bottom: 39px;
+  bottom: 28px;
   left: 310px;
   width: 19px;
   height: 19px;

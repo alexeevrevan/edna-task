@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 100%;
   background: #ffffff;
-  font-family: 'League Spartan', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   display: flex;
   justify-content: center;
 `
