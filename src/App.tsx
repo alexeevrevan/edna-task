@@ -1,7 +1,7 @@
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title_component";
 import Window from "./components/Main_window";
-import edna_logo from  "../images/edna_logo.png";
+import edna_logo_gif from  "../images/edna_gif.gif";
 import Captcha from "../images/Captcha.png";
 
 import Image_Wrapper from "./components/Image_wrapper";
@@ -22,7 +22,7 @@ export const App = () => {
             <Wrapper>
                 <Window>
                     <Image_Wrapper>
-                        <img src={edna_logo}/>
+                        <img src={edna_logo_gif} style={{width: '400px', height: '400px'}} alt={''}/>
                     </Image_Wrapper>
                     <Login_Frame>
                         <Title>Вход в аккаунт</Title>
@@ -36,7 +36,7 @@ export const App = () => {
                             <Input_text placeholder = "●●●●●●●●●●●●●●●●"></Input_text>
                             <div style={{height: '12px', alignSelf: 'stretch'}}></div>
                         </Input_Field>
-                        <img src={Captcha} style={{position: 'relative',left: "-3px"}}/>
+                        <img src={Captcha} style={{position: 'relative',left: "-3px"}} alt={''}/>
                         <Input_Field>
                             <Small_Grey_Text>Цифры с картинки</Small_Grey_Text>
                             <Input_text placeholder = "00000"></Input_text>
