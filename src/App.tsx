@@ -44,6 +44,7 @@ export const App = () => {
 
     const {
         register,
+        reset,
         formState: {
             errors,
         },
@@ -53,6 +54,7 @@ export const App = () => {
 
     const onSubmit: SubmitHandler<FormValues> = data => {
         alert(JSON.stringify(data))
+        reset()
     }
 
     //Проверка капчи
