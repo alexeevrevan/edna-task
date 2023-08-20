@@ -16,11 +16,14 @@ import Forgot_Password from "./components/Forgot_Password";
 import Sign_In from "./components/Sign_In";
 import Footer from "./components/Footer";
 import Footer_Text from "./components/Footer_Text";
-import {useForm, SubmitHandler} from "react-hook-form";
+import {useForm, SubmitHandler, SubmitErrorHandler} from "react-hook-form";
 import React, {useState} from "react";
 import Visibility from "./components/Visibility";
 import Styled_Submit from "./components/Styled_Submit";
 import ErrorText from "./components/Error_Text";
+import ErrorBanner from "./components/Error_Banner";
+import ErrorImage from "../images/error.svg"
+
 
 
 export const App = () => {
@@ -48,21 +51,10 @@ export const App = () => {
     } = useForm<FormValues>();
 
 
-
-    ///Проверка капчи
-    const isCaptcha = data => {
-        if(data === '50305'){
-            return true
-        }
-        else{
-            return false
-        }
-    };
-
-
-    const onSubmit = (data) => {
+    const onSubmit: SubmitHandler<FormValues> = data => {
         alert(JSON.stringify(data))
     }
+
 
     return (
         <div>
@@ -77,34 +69,49 @@ export const App = () => {
 
                         <Title>Вход в аккаунт</Title>
 
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit )}>
+
+                            {errors?.captcha  && <ErrorBanner><img src={ErrorImage}/> <div><p>Указан неверный код с картинки Пожалуйста, повторите попытку</p></div> </ErrorBanner>}
 
                             <Input_Field>
-                                <Small_Grey_Text>Е-mail</Small_Grey_Text>
-                                <Input_text placeholder = "company.com" {...register('email', {pattern:/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/})}></Input_text>
+
+                                <Small_Grey_Text className={errors.email ? 'inValid' : 'Valid'}>Е-mail</Small_Grey_Text>
+                                <Input_text
+                                    className={errors.email ? 'inValid' : 'Valid'}
+                                    placeholder = "company.com"
+                                    {...register("email", {pattern:/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, required: true})}>
+
+                                </Input_text>
                                 <div style={{height: '16px'}}>{errors?.email && <ErrorText>Неправильное имя пользователя</ErrorText>}</div>
                             </Input_Field>
 
                             <Input_Field>
-                                <Small_Grey_Text>Пароль</Small_Grey_Text>
-                                <Input_text placeholder = "●●●●●●●●●●●●●●●●" type={(!open ? 'password' : 'text')}
-                                            {...register('password')}></Input_text>
+                                <Small_Grey_Text className={errors.password ? 'inValid' : 'Valid'}>Пароль</Small_Grey_Text>
+                                <Input_text
+
+                                    className={errors.password ? 'inValid' : 'Valid'}
+                                    placeholder = "●●●●●●●●●●●●●●●●"
+
+                                    type={(!open ? 'password' : 'text')}
+
+                                    {...register('password')}></Input_text>
 
                                 {
                                     ///Меняем иконку (открытый/закрытый глаз)
                                     !open ? <Visibility src={Visibility_On} onClick={toggle}/> : <Visibility src={Visibility_Off} onClick={toggle}/>
                                 }
-
                             </Input_Field>
 
                             <img src={Captcha} style={{position: 'relative',left: "-3px"}} alt={''}/>
 
 
                             <Input_Field>
-                                <Small_Grey_Text>Цифры с картинки</Small_Grey_Text>
-                                <Input_text placeholder = "00000" {...register('captcha', {required: true, validate: isCaptcha})}></Input_text>
+                                <Small_Grey_Text className={errors.captcha ? 'inValid' : 'Valid'}>Цифры с картинки</Small_Grey_Text>
+                                <Input_text
+                                    className={errors.captcha ? 'inValid' : 'Valid'}
+                                    placeholder="00000" {...register('captcha', {required: true})}
+                                    aria-invalid={!!errors.captcha}></Input_text>
                                 <div style={{height: '12px', alignSelf: 'stretch'}}>{errors?.captcha && <ErrorText>Необходимо заполнить это поле</ErrorText>}</div>
-                                <div style={{height: '12px', alignSelf: 'stretch'}}></div>
                             </Input_Field>
 
 

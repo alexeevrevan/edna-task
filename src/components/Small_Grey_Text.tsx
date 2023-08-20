@@ -7,6 +7,10 @@ const SmallGreyText = styled.p`
   font-size: 12px;
   font-feature-settings: 'clig' off, 'liga' off;
   font-weight: 400;
+  
+  &.inValid{
+    color: #E11900;
+  }
 `
 
 
