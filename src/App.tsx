@@ -5,7 +5,7 @@ import edna_logo_gif from  "../images/edna_gif.gif";
 import Captcha from "../images/Captcha.png";
 import Visibility_On from "../images/visibility-on.svg";
 import Visibility_Off from "../images/visibility-off.svg";
-
+import ErrorImage from "../images/error.svg"
 import Image_Wrapper from "./components/Image_wrapper";
 import Login_Frame from "./components/Login_Frame";
 import Input_Field from "./components/Input_Field";
@@ -16,13 +16,13 @@ import Forgot_Password from "./components/Forgot_Password";
 import Sign_In from "./components/Sign_In";
 import Footer from "./components/Footer";
 import Footer_Text from "./components/Footer_Text";
-import {useForm, SubmitHandler, SubmitErrorHandler} from "react-hook-form";
+import {useForm, SubmitHandler} from "react-hook-form";
 import React, {useState} from "react";
 import Visibility from "./components/Visibility";
 import Styled_Submit from "./components/Styled_Submit";
 import ErrorText from "./components/Error_Text";
 import ErrorBanner from "./components/Error_Banner";
-import ErrorImage from "../images/error.svg"
+
 
 
 
@@ -63,11 +63,11 @@ export const App = () => {
     };
 
     //Проверка мейла
-
     const emailCheck = (email:string) => {
         return email === "san73rus@gmail.com"
     };
 
+    //Проверка пароля
     const passwordCheck = (password:string) => {
         return password === "123123"
     };

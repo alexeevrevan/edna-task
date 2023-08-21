@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import {App} from "../App";
-import {Simulate} from "react-dom/test-utils";
 
 const InputText = styled.input`
   background: #F4F4F4;
@@ -17,16 +15,8 @@ const InputText = styled.input`
     border: none;
     outline: 2px solid #E85C4A;
   }
-  
 `
 
-
-
-//background: #F4F4F4;
-///   &:focus{
-//     outline: none;
-//     border: 2px solid red;
-//   }
 
 
 export default InputText;
