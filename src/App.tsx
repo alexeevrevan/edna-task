@@ -16,7 +16,7 @@ import Forgot_Password from "./components/Forgot_Password";
 import Sign_In from "./components/Sign_In";
 import Footer from "./components/Footer";
 import Footer_Text from "./components/Footer_Text";
-import {useForm, SubmitHandler} from "react-hook-form";
+import {useForm, SubmitHandler, SubmitErrorHandler} from "react-hook-form";
 import React, {useState} from "react";
 import Visibility from "./components/Visibility";
 import Styled_Submit from "./components/Styled_Submit";
@@ -46,20 +46,23 @@ export const App = () => {
         register,
         reset,
         formState: {
-            errors,
+            errors
         },
         handleSubmit
     } = useForm<FormValues>();
 
-
     const onSubmit: SubmitHandler<FormValues> = data => {
-        alert(JSON.stringify(data))
-        reset()
+        alert(JSON.stringify(data));
+        reset();
+    }
+
+    const error: SubmitErrorHandler<FormValues> = data => {
+        
     }
 
     //Проверка капчи
     const captchaIsCorrect = (captcha:string) => {
-        return captcha === "50305"
+        return captcha === "50305";
     };
 
     //Проверка мейла
@@ -71,6 +74,7 @@ export const App = () => {
     const passwordCheck = (password:string) => {
         return password === "123123"
     };
+
 
 
     return (
