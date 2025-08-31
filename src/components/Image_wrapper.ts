@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const Image_Wrapper = styled.div`
   width: 400px;
   height: 400px;
@@ -9,7 +8,6 @@ const Image_Wrapper = styled.div`
   margin-bottom: 260px;
   margin-left: 38px;
   margin-right: 103px;
-`
+`;
 
-
-export default Image_Wrapper
+export default Image_Wrapper;

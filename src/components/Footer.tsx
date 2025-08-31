@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const Footer = styled.div`
   width: 100%;
   height: 40px;
@@ -11,8 +10,7 @@ const Footer = styled.div`
   bottom: 0;
   left: 0;
   position: fixed;
-  font-family: 'Noto Sans', sans-serif;
-`
+  font-family: "Noto Sans", sans-serif;
+`;
 
-
-export default Footer
+export default Footer;

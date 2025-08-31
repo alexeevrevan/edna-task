@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const Sing_In = styled.p`
   width: 320px;
   height: 20px;
@@ -11,7 +10,6 @@ const Sing_In = styled.p`
   font-size: 14px;
   color: #000;
   font-weight: 400;
-`
+`;
 
-
-export default Sing_In
+export default Sing_In;

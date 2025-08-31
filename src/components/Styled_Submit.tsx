@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const Styled_Submit = styled.input.attrs({
-    type: 'submit',
-    value: 'Войти'
+  type: "submit",
+  value: "Войти",
 })`
   width: 85px;
   height: 36px;
   background: #121212;
-  color: #FFFFFF;
+  color: #ffffff;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -17,7 +16,6 @@ const Styled_Submit = styled.input.attrs({
   font-weight: bold;
   text-decoration: none;
   margin-left: 10px;
-`
+`;
 
-
-export default Styled_Submit
+export default Styled_Submit;
