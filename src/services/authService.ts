@@ -2,7 +2,6 @@ import { LoginFormValues } from "../types/form";
 
 export const loginUser = async (data: LoginFormValues) => {
   return new Promise((resolve, reject) => {
-    // Имитация запроса
     setTimeout(() => {
       if (
         data.email === "san73rus@gmail.com" &&

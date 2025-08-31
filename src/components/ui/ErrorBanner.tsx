@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ErrorImage from "../assets/images/error.svg";
+import ErrorImage from "../../assets/images/error.svg";
 
 interface ErrorBannerProps {
   errorMessage: string;
