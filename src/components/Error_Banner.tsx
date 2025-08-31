@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import ErrorImage from "../assets/images/error.svg";
 
-const ErrorBanner = styled.div`
+interface ErrorBannerProps {
+  errorMessage: string;
+}
+
+const ErrorBannerWrapper = styled.div`
   background: #e85c4a;
   display: flex;
   width: 339px;
@@ -27,5 +32,16 @@ const ErrorBanner = styled.div`
     color: white;
   }
 `;
+
+const ErrorBanner: React.FC<ErrorBannerProps> = ({ errorMessage }) => {
+  return (
+    <ErrorBannerWrapper>
+      <img src={ErrorImage} alt="Error" />
+      <div>
+        <p>{errorMessage}</p>
+      </div>
+    </ErrorBannerWrapper>
+  );
+};
 
 export default ErrorBanner;

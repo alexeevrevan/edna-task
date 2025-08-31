@@ -68,12 +68,7 @@ export const App = () => {
 
             <form onSubmit={handleSubmit(onSubmit)}>
               {errors.topBanner && (
-                <ErrorBanner>
-                  <img src={ErrorImage} alt="" />
-                  <div>
-                    <p>{errors.topBanner}</p>
-                  </div>
-                </ErrorBanner>
+                <ErrorBanner errorMessage={errors.topBanner} />
               )}
 
               <Input_Field>
