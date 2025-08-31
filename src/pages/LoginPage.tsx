@@ -42,15 +42,12 @@ export const LoginPage: React.FC = () => {
     <>
       <AuthLayout>
         <ImageContainer src={edna_logo_gif} alt="Edna Logo" />
-
         <LoginFrame>
           <Title>Вход в аккаунт</Title>
-
           <form onSubmit={handleSubmit(onSubmit)}>
             {errors.topBanner && (
               <ErrorBanner errorMessage={errors.topBanner} />
             )}
-
             <CustomInputField
               label="Е-mail"
               placeholder="company.com"
@@ -58,7 +55,6 @@ export const LoginPage: React.FC = () => {
               fieldName="email"
               error={errors.email}
             />
-
             <CustomInputField
               label="Пароль"
               placeholder="●●●●●●●●●●●●●●●●"
@@ -68,9 +64,7 @@ export const LoginPage: React.FC = () => {
               error={errors.password}
               isPassword
             />
-
             <img src={Captcha} />
-
             <CustomInputField
               label="Цифры с картинки"
               placeholder="00000"
@@ -78,13 +72,11 @@ export const LoginPage: React.FC = () => {
               fieldName="captcha"
               error={errors.captcha}
             />
-
             <BottomFrame>
               <Forgot_Password href="/">Забыли пароль?</Forgot_Password>
               <SubmitButton />
             </BottomFrame>
           </form>
-
           <SignInComponent text="Уже есть аккаунт?" linkText="Войдите" />
         </LoginFrame>
       </AuthLayout>
