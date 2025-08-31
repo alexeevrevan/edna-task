@@ -9,25 +9,17 @@ import Wrapper from "./components/Wrapper";
 import Window from "./components/Main_window";
 import Title from "./components/Title_component";
 import ErrorBanner from "./components/Error_Banner";
-import Input_Field from "./components/Input_Field";
-import Small_Grey_Text from "./components/Small_Grey_Text";
-import Input_text from "./components/Input_text";
-import Visibility from "./components/Visibility";
 import Bottom_Frame from "./components/Bottom_Frame";
 import Forgot_Password from "./components/Forgot_Password";
 import Styled_Submit from "./components/Styled_Submit";
-import ErrorText from "./components/Error_Text";
 import Sign_In from "./components/Sign_In";
 import Footer from "./components/Footer";
-import Footer_Text from "./components/Footer_Text";
 import Image_Wrapper from "./components/Image_wrapper";
 import Login_Frame from "./components/Login_Frame";
 
 import edna_logo_gif from "../images/edna_gif.gif";
 import Captcha from "../images/Captcha.png";
-import Visibility_On from "../images/visibility-on.svg";
-import Visibility_Off from "../images/visibility-off.svg";
-import ErrorImage from "../images/error.svg";
+import CustomInputField from "./components/ui/CustomInputField";
 
 export const App = () => {
   const { register, handleSubmit, reset } = useForm<LoginFormValues>({
@@ -35,7 +27,6 @@ export const App = () => {
   });
 
   const { errors, validateForm, clearErrors } = useLoginValidation();
-  const { isVisible, toggle, type: passwordType } = usePasswordVisibility();
 
   const onSubmit = async (data: LoginFormValues) => {
     clearErrors();
@@ -71,44 +62,23 @@ export const App = () => {
                 <ErrorBanner errorMessage={errors.topBanner} />
               )}
 
-              <Input_Field>
-                <Small_Grey_Text className={errors.email ? "inValid" : "Valid"}>
-                  Е-mail
-                </Small_Grey_Text>
-                <Input_text
-                  className={errors.email ? "inValid" : "Valid"}
-                  placeholder="company.com"
-                  {...register("email")}
-                />
-                <div style={{ height: "16px" }}>
-                  {errors.email && <ErrorText>{errors.email}</ErrorText>}
-                </div>
-              </Input_Field>
+              <CustomInputField
+                label="Е-mail"
+                placeholder="company.com"
+                register={register}
+                fieldName="email"
+                error={errors.email}
+              />
 
-              <Input_Field>
-                <Small_Grey_Text
-                  className={errors.password ? "inValid" : "Valid"}
-                >
-                  Пароль
-                </Small_Grey_Text>
-                <Input_text
-                  className={errors.password ? "inValid" : "Valid"}
-                  placeholder="●●●●●●●●●●●●●●●●"
-                  type={passwordType}
-                  {...register("password")}
-                />
-
-                <Visibility
-                  src={isVisible ? Visibility_Off : Visibility_On}
-                  onClick={toggle}
-                />
-              </Input_Field>
-
-              {errors.password && (
-                <ErrorText style={{ width: "210px", marginTop: "-15px" }}>
-                  {errors.password}
-                </ErrorText>
-              )}
+              <CustomInputField
+                label="Пароль"
+                placeholder="●●●●●●●●●●●●●●●●"
+                type="password"
+                register={register}
+                fieldName="password"
+                error={errors.password}
+                isPassword
+              />
 
               <img
                 src={Captcha}
@@ -116,21 +86,13 @@ export const App = () => {
                 alt=""
               />
 
-              <Input_Field>
-                <Small_Grey_Text
-                  className={errors.captcha ? "inValid" : "Valid"}
-                >
-                  Цифры с картинки
-                </Small_Grey_Text>
-                <Input_text
-                  className={errors.captcha ? "inValid" : "Valid"}
-                  placeholder="00000"
-                  {...register("captcha")}
-                />
-                <div style={{ height: "12px", alignSelf: "stretch" }}>
-                  {errors.captcha && <ErrorText>{errors.captcha}</ErrorText>}
-                </div>
-              </Input_Field>
+              <CustomInputField
+                label="Цифры с картинки"
+                placeholder="00000"
+                register={register}
+                fieldName="captcha"
+                error={errors.captcha}
+              />
 
               <Bottom_Frame>
                 <Forgot_Password href="/">Забыли пароль?</Forgot_Password>
