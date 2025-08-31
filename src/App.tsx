@@ -152,21 +152,7 @@ export const App = () => {
           </Login_Frame>
         </Window>
       </Wrapper>
-      <Footer>
-        <Footer_Text>
-          © 2005 – 2020 edna{" "}
-          <a
-            href="/"
-            style={{
-              color: "#E5E5E5",
-              marginLeft: "3px",
-              textDecoration: "none",
-            }}
-          >
-            Поддержка
-          </a>
-        </Footer_Text>
-      </Footer>
+      <Footer />
     </div>
   );
 };
